@@ -1,4 +1,5 @@
 # memos-additionals
 
-# milk 
-[see]([https://www.nvmnode.com](https://github.com/ilovejumo/memos-additionals/blob/main/milk/show.md))
+## 🥛 Milk
+
+Preview: [milk](https://github.com/ilovejumo/memos-additionals/blob/main/milk/show.md)
