@@ -1,0 +1,545 @@
+:root {
+  --background: #080707 !important;
+  --foreground: #d8d1cc !important;
+  --card: rgba(18, 14, 13, 0.94) !important;
+  --card-foreground: #d8d1cc !important;
+  --border: #3f1d18 !important;
+  --muted-foreground: #8f7a74 !important;
+  --primary: #6f2019 !important;
+  --primary-hover: #7d2a21 !important;
+  --primary-foreground: #e6ded8 !important;
+  --accent: #211514 !important;
+  --accent-foreground: #d8d1cc !important;
+  --link: #b67668 !important;
+  --caret: #8b2d24 !important;
+  --dialog-bg: #15100f !important;
+  --disabled-bg: #211514 !important;
+  --disabled-fg: #705d58 !important;
+  --disabled-border: #33201d !important;
+  --sidebar: #100c0b !important;
+  --sidebar-foreground: #d8d1cc !important;
+  --sidebar-accent: #211514 !important;
+  --sidebar-accent-foreground: #d8d1cc !important;
+  --sidebar-accent-border: #6f2019 !important;
+  --transition-base: 140ms linear;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  background:
+    linear-gradient(rgba(8, 7, 7, 0.66), rgba(8, 7, 7, 0.66)),
+    url("https://shared.fastly.steamstatic.com/community_assets/images/items/1604000/a3602e67f5d61f4dbfab7d04d1f6609b771ddfc7.jpg")
+    center center / cover fixed no-repeat !important;
+  color: var(--foreground) !important;
+}
+
+main,
+section,
+.bg-background {
+  background: transparent !important;
+}
+
+.sticky.top-0 {
+  background: rgba(10, 8, 8, 0.92) !important;
+  border-bottom: 1px solid var(--border) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  animation: emberSettle 200ms ease-out both;
+}
+
+a.mb-3.cursor-default {
+  display: none !important;
+}
+
+body::after {
+  content: ",milk";
+  position: fixed;
+  right: 1.25rem;
+  bottom: 0.75rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: -0.03em;
+  color: var(--muted-foreground);
+  opacity: 0.25;
+  transform: rotate(-2deg);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bg-sidebar {
+  background: var(--sidebar) !important;
+  border-color: var(--border) !important;
+}
+
+.bg-sidebar > header {
+  justify-content: flex-start !important;
+  gap: 0.75rem !important;
+}
+
+header .w-full.flex.flex-col.justify-end.items-center {
+  order: -1;
+  margin-bottom: 0.5rem !important;
+  padding-bottom: 0.75rem !important;
+  border-bottom: 1px solid var(--border) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+header .w-full.flex.flex-col.justify-end.items-center > div {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+#header-inbox {
+  position: relative;
+  margin-top: 0.75rem !important;
+}
+
+#header-inbox::before {
+  content: "";
+  position: absolute;
+  top: -0.5rem;
+  left: 0.25rem;
+  right: 0.25rem;
+  height: 1px;
+  background: var(--border);
+}
+
+.text-sidebar-foreground {
+  color: var(--sidebar-foreground) !important;
+}
+
+a.bg-sidebar-accent.text-sidebar-accent-foreground.border-sidebar-accent-border {
+  background: var(--sidebar-accent) !important;
+  color: var(--sidebar-accent-foreground) !important;
+  animation: emberActive 2400ms ease-in-out infinite;
+}
+
+header a[id^="header-"] {
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base),
+    border-color var(--transition-base),
+    transform var(--transition-base) !important;
+}
+
+header a[id^="header-"]:hover {
+  transform: translateX(2px);
+}
+
+header .relative.shrink-0:has(img[src*="/avatar"]) .rounded-xl {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  border: none !important;
+}
+
+header img[src*="/avatar"] {
+  transition: transform var(--transition-base), filter var(--transition-base) !important;
+}
+
+header .relative.shrink-0:has(img[src*="/avatar"]):hover img {
+  transform: rotate(-4deg) scale(1.08);
+  filter: saturate(1.15) contrast(1.05);
+}
+
+.bg-card {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition: background-color var(--transition-base), border-color var(--transition-base) !important;
+  animation: emberRise 220ms ease-out both;
+}
+
+.bg-card:has(textarea:focus) {
+  border-color: var(--primary) !important;
+  animation: emberGlow 2200ms ease-in-out infinite;
+}
+
+[class*="memo"],
+article {
+  animation: emberRise 220ms ease-out both;
+}
+
+.text-foreground,
+.text-card-foreground {
+  color: var(--foreground) !important;
+}
+
+.text-muted-foreground {
+  color: var(--muted-foreground) !important;
+}
+
+.font-bold.text-lg {
+  color: var(--link) !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important;
+  text-shadow: none !important;
+}
+
+p.font-mono {
+  color: var(--muted-foreground) !important;
+  letter-spacing: 0.03em;
+}
+
+.border,
+.border-border {
+  border-color: var(--border) !important;
+}
+
+.rounded-lg,
+.rounded-md {
+  border-radius: 4px !important;
+}
+
+button,
+a {
+  color: var(--link) !important;
+  border-color: var(--border) !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base),
+    border-color var(--transition-base),
+    opacity var(--transition-base),
+    transform var(--transition-base) !important;
+}
+
+button:hover,
+a:hover {
+  background: var(--accent) !important;
+  color: var(--foreground) !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  transform: translateY(-1px);
+}
+
+button:active,
+a:active {
+  transform: translateY(0);
+}
+
+.bg-primary {
+  background: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+  box-shadow: none !important;
+}
+
+.bg-primary:hover {
+  background: var(--primary-hover) !important;
+  color: var(--primary-foreground) !important;
+}
+
+.bg-primary:disabled,
+button:disabled {
+  background: var(--disabled-bg) !important;
+  color: var(--disabled-fg) !important;
+  border-color: var(--disabled-border) !important;
+  opacity: 1 !important;
+}
+
+input,
+textarea,
+[contenteditable="true"] {
+  background: transparent !important;
+  color: var(--foreground) !important;
+  caret-color: var(--caret) !important;
+  border-color: var(--border) !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base),
+    border-color var(--transition-base),
+    opacity var(--transition-base) !important;
+}
+
+.memo-editor-content textarea {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important;
+}
+
+textarea::placeholder,
+input::placeholder {
+  color: var(--muted-foreground) !important;
+  opacity: 0.85 !important;
+}
+
+[class*="badge"],
+[data-slot="badge"] {
+  background: var(--accent) !important;
+  color: var(--link) !important;
+  border-color: var(--border) !important;
+  transition: background-color var(--transition-base), color var(--transition-base) !important;
+}
+
+[class*="badge"]:hover,
+[data-slot="badge"]:hover {
+  background: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+}
+
+.prose a,
+[class*="memo"] a {
+  position: relative;
+  text-decoration: none !important;
+}
+
+.prose a::after,
+[class*="memo"] a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+.prose a:hover::after,
+[class*="memo"] a:hover::after {
+  transform: scaleX(1);
+}
+
+[data-slot="popover-content"],
+[data-slot="dropdown-menu-content"],
+[data-slot="tooltip-content"],
+[data-slot="select-content"] {
+  background: var(--dialog-bg) !important;
+  color: var(--foreground) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: none !important;
+  animation: emberPop 140ms ease-out both;
+}
+
+[data-slot="dropdown-menu-item"]:hover,
+[data-slot="select-item"]:hover {
+  background: var(--accent) !important;
+  color: var(--foreground) !important;
+}
+
+[data-sonner-toaster] [data-sonner-toast] {
+  background: var(--dialog-bg) !important;
+  color: var(--foreground) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: none !important;
+  animation: emberToastIn 220ms ease-out both;
+}
+
+[data-sonner-toast] [data-title] {
+  color: var(--foreground) !important;
+}
+
+[data-sonner-toast] [data-description] {
+  color: var(--muted-foreground) !important;
+}
+
+[data-rht-toaster] div[role] {
+  background: var(--dialog-bg) !important;
+  color: var(--foreground) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: none !important;
+  border-radius: 4px !important;
+  animation: emberToastIn 220ms ease-out both;
+}
+
+.animate-pulse {
+  background: var(--accent) !important;
+  animation: emberPulse 1500ms ease-in-out infinite !important;
+}
+
+svg {
+  color: currentColor !important;
+  filter: none !important;
+}
+
+img {
+  box-shadow: none !important;
+}
+
+img[src*="ToucanIdle"] {
+  filter: sepia(0.55) saturate(0.85) brightness(0.65) contrast(1.05);
+  opacity: 0.55;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-hover);
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+[role="dialog"] {
+  background: var(--dialog-bg) !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: none !important;
+}
+
+[role="dialog"] .bg-background,
+[data-slot="dialog-content"] {
+  background: var(--dialog-bg) !important;
+}
+
+[data-slot="dialog-overlay"],
+[data-radix-dialog-overlay] {
+  background: rgba(0, 0, 0, 0.55) !important;
+  backdrop-filter: none !important;
+}
+
+img[src*="milk-icon"] {
+  display: none !important;
+}
+
+p.text-5xl.opacity-80 {
+  margin-left: 0 !important;
+  opacity: 1 !important;
+  font-size: 4rem !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.04em !important;
+  color: var(--link) !important;
+  transform: rotate(-2deg);
+}
+
+form span.leading-8.text-muted-foreground {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important;
+  font-size: 0.7rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 2 !important;
+}
+
+form input[data-slot="input"]:focus {
+  outline: none !important;
+  border-color: var(--primary) !important;
+}
+
+form button[type="submit"] {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700 !important;
+}
+
+[data-slot="select-trigger"] {
+  background: transparent !important;
+  border-color: var(--border) !important;
+  color: var(--link) !important;
+  transition: background-color var(--transition-base), color var(--transition-base) !important;
+}
+
+[data-slot="select-trigger"]:hover {
+  background: var(--accent) !important;
+  color: var(--foreground) !important;
+}
+
+@keyframes emberRise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes emberSettle {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes emberGlow {
+  0%,
+  100% {
+    background-color: rgba(18, 14, 13, 0.94);
+  }
+  50% {
+    background-color: rgba(24, 16, 14, 0.94);
+  }
+}
+
+@keyframes emberPop {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes emberToastIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes emberPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes emberActive {
+  0%,
+  100% {
+    border-color: var(--sidebar-accent-border);
+  }
+  50% {
+    border-color: var(--primary-hover);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
