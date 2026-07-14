@@ -30,7 +30,7 @@ body,
   min-height: 100%;
   background:
     linear-gradient(rgba(8, 7, 7, 0.66), rgba(8, 7, 7, 0.66)),
-    url("https://shared.fastly.steamstatic.com/community_assets/images/items/1604000/a3602e67f5d61f4dbfab7d04d1f6609b771ddfc7.jpg")
+    url("https://cdn.jsdelivr.net/gh/ilovejumo/memos-additionals@cec6889c40246168060d3384157b6c82d3d6a0fd/milk/a3602e67f5d61f4dbfab7d04d1f6609b771ddfc7.jpg")
     center center / cover fixed no-repeat !important;
   color: var(--foreground) !important;
 }
