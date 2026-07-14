@@ -1,3 +1,3 @@
 # memos-additionals
 
-# (milk/show.md)[milk theme]
+# [milk/show.md](milk theme)
